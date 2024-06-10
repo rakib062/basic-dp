@@ -1,6 +1,4 @@
-name: Hello
+name: Basic test
 challenges:
-  - id: apple
-    name: Apple
-  - id: banana
-    name: Banana
+  - id: test
+    name: Test
