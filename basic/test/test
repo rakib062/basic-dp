@@ -1,4 +1,23 @@
 #!/opt/pwn.college/python
-print('welcome to this test challenge')
-with open("/flag") as f:
-    print(f.read())
+
+import pandas as pd
+import numpy as np
+
+adult=pd.read_csv('adult-reduced.csv')
+patient =pd.read_csv('adult-patients.csv')
+
+print('Welcome to this database linking attack challenge. Two datasets have been loaded for you: an adult income dataset (named adult) and an adult health dataset (named patient). Write queries to explore this dataset. To get the flag, write a query that will link these two dataframes and return the medical condition (disease) of Gwenette Nashe. The return value should a just the string representing the disease. You can use a single query or multiple queries storing the intermediate results in variables.')
+
+while True:
+	q = input('Enter a query to execute:  ')
+	try:
+		exec('ret = '+q)
+		
+		print(ret)
+
+		if ret =='Fever':
+			with open("/flag") as f:
+				print(f.read())
+	except Exception as e:
+		print("Invalid query.")
+
